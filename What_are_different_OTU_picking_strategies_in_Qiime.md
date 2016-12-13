@@ -9,3 +9,5 @@
 
 ### Open-reference OTU picking (recommended!)
 ##### Reads are clusterest against a reference database and ones without hits are clustered de novo. 
+
+More information can be found at [Qiime.org](http://qiime.org/tutorials/otu_picking.html)
