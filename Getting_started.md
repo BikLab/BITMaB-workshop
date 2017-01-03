@@ -25,6 +25,6 @@ enable_qiime.sh
 source activate qiime1
 ```
 
-Now, you should be in the Qiime environment and ready for the pipeline.
+Now, you should be in the Qiime environment and ready to run through the pipeline.
 
 
