@@ -1,3 +1,6 @@
+## Qiime pipeline for analyzing and visualizing marine benthic community data
+
+This tutorial will guide you through an example Qiime workflow. Qiime is a Python-based program that can analyze raw DNA reads directly. It is an open source software and more information about the following commands can be found [here](http://qiime.org/) 
 ### Picking OTUs using open reference
 
 ##### Once the fastq files have been demultiplexed, the next step is to pick OTUs in your data using a ref database. 
