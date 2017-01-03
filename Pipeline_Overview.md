@@ -1,4 +1,6 @@
-### Analyzing metagenomic data using Qiime 1.9.1
+### Analyzing metagenomic data using Qiime
+
+Below are the general steps of the pipeline.
 
 #### Step 1: Demultiplex the raw reads
 #### Step 2: Pick OTUs (16S and/or 18S)
