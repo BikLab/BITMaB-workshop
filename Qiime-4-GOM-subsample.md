@@ -149,3 +149,19 @@ beta_diversity_through_plots.py \
 	-t /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre \
 	-e 3412
 ```
+#### Step 16 - Run alpha div analysis
+
+```
+alpha_diversity.py \
+	-i  /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
+	-o /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/alpha_div_50K_NOpf_NOc \
+	-t /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre 
+```
+```
+alpha_rarefaction.py \
+	-i  /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
+	-m /home/gomre/taruna/GOM-Illumina/qiime-files/mapping-files/QIIMEmappingfile_GOM_Illumina_7Apr14_F04.txt \
+	-o /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/alpha_rare_50K_NOpf_NOc \
+	-t /data/gomre/taruna/50k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre \
+	-e 3412
+```
