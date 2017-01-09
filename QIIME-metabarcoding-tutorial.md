@@ -1,18 +1,43 @@
-## This file contains a basic set of Qiime commands for analyzing metagenomic data and calculating diversity metrics.
+## QIIME workflow for metabarcoding analysis (18S/16S rRNA)
 
-If you have any questions about the options in the following commands, please run the name of the script with the help command as shown below.
+Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
 
-### To view the help menu for `pick_open_reference_otus.py`, run:
+[Link to the main QIIME website](http://qiime.org) (for more tutorials and detailed documentation of each script).
+
+### To view the help menu for any QIIME script, run:
 
 ```
-pick_open_reference_otus.py -h
+<script-name> -h
 ```
+OR
+
+```
+<script-name> --help
+```
+
+Web documentation of "help" dialogues are also [available on the QIIME website](http://qiime.org/scripts/)
+
 ### Step 1 - Demultiplex the raw reads
 
-This step is already done for you. Please proceed to Step 2.
+Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
-### Step 2 - Pick OTUs 
-We will start by picking Operational Taxonomic Units (OTUs) in our fasta file that contains reads from each sample. 
+```
+
+```
+
+For the purpose of the workshop, we have already completed this step for you. Please proceed to Step 2.
+
+### Step 2 - Pick Operational Taxonomic Units 
+
+"Picking" Operational Taxonomic Units (abbreviated as **OTUs**) is a standard method for clustering raw Illumina reads into clusters of sequences. In theory each OTU is the molecular equivalent of a morphological "species" (but in practice the OTU picking approach is arbitrary and not a perfect equivalent - often you will recover many more OTUs than known biological species).
+
+QIIME offers several options for picking OTUs - the two most common are `reference-based OTU picking` and `open-reference OTU picking`
+
+`Why would choose use one type of OTU picking over the other?`
+
+In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
+
+We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
 #### 2a. Picking OTUs using the open reference strategy
 ```

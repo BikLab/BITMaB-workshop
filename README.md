@@ -2,9 +2,7 @@
 
 This workshop provides training on how to describe the taxonomic diversity in a marine benthic community, using both morphological taxonomy and environmental sequencing approaches.
 
-Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
-
-[Link to the main QIIME website](http://qiime.org) (for more tutorials and detailed documentation of each script).
+Workshop Schedule is here: 
 
 # Getting started
 ### Login using the username assigned to you
