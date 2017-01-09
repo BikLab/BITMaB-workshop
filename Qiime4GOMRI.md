@@ -93,31 +93,31 @@ filter_otus_from_otu_table.py \
 
 ```
 filter_otus_from_otu_table.py \
-	-i /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/otu_table_mc2_w_tax_metadata.biom \
-	-o /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail.biom \
-	-e /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/pynast_aligned_seqs/rep_set_failures.fasta
+	-i <table.biom> \
+	-o <out.table.biom> \
+	-e <rep.set.failures.fna>
 ```
 
 #### 4b. Summarize the BIOM table to identify the minimum number of sequences per sample and store the output in a text file. The minimum number of sequences per sample should be used for the `-e` in Step 3h
 ```
 biom summarize-table \
-	-i /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
-	-o /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/biom_summary_filt_NOpf_NOc.txt
+	-i <table.biom> \
+	-o <out.table.txt>
 ```
 
 ### Step 5 -  Filter fasta file of aligned rep set sequences to only keep OTUs in filtered BIOM file
 ```
 filter_fasta.py \
-	-f /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/pynast_aligned_seqs/rep_set_aligned_pfiltered.fasta \
-	-o /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.fasta \
-	-b /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom
+	-f <rep.set.aligned.filtered.fna> \
+	-o <output.fna> \
+	-b <table.biom>
 ```
 
 ### Step 6 - Make new phylogeny with final set of OTUS (no chimeras, no alignment failures)
 ```
 make_phylogeny.py \
-	-i /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.fasta \
-	-o /home/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre \
+	-i <input.fna> \
+	-o <output.tre> \
 	--tree_method fasttree
 ```
 
@@ -125,25 +125,25 @@ make_phylogeny.py \
 #### 7a. Run beta diversity analysis
 ```
 beta_diversity_through_plots.py \
-	-i /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
-	-m /home/gomre/taruna/200k-GOM-Illumina-subsample/qiime-files/mapping-files/QIIMEmappingfile_GOM_Illumina_7Apr14_F04.txt \
-	-o /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/beta_div_thru_plots_200k_NOpf_NOc \
-	-t /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre \
-	-e 15080
+	-i <table.biom> \
+	-m <mapping.file.txt> \
+	-o <output.directory.name> \
+	-t <input.tre> \
+	-e <count.per.sample>
 ```
-#### 7a. Run alpha diversity analysis
+#### 7b. Run alpha diversity analysis
 
 ```
 alpha_diversity.py \
-	-i  /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
-	-o /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/alpha_div_200k_NOpf_NOc \
-	-t /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre 
+	-i  <table.biom> \
+	-o <output.txt> \
+	-t <input.tre> 
 ```
 ```
 alpha_rarefaction.py \
-	-i  /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/otu_table_mc2_w_tax_metadata_NOpynastfail_NOchimeras.biom \
-	-m /home/gomre/taruna/200k-GOM-Illumina-subsample/qiime-files/mapping-files/QIIMEmappingfile_GOM_Illumina_7Apr14_F04.txt \
-	-o /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/alpha_rare_200k_NOpf_NOc \
-	-t /data/gomre/taruna/200k-GOM-Illumina-subsample/analysis-results/18Seuks_rdp_99pct_Jan2017/usearch_checked_chimeras/pfiltered_align_BIOMfilt.tre \
-	-e 3412
+	-i  <table.biom> \
+	-m <mapping.file.txt> \
+	-o <output.directory.name> \
+	-t <input.tre> \
+	-e <count.per.sample>
 ```
