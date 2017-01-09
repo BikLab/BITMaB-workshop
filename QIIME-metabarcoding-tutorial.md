@@ -4,6 +4,8 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 [Link to the main QIIME website](http://qiime.org) (for more tutorials and detailed documentation of each script).
 
+---
+
 ### To view the help menu for any QIIME script, run:
 
 ```
@@ -17,7 +19,7 @@ OR
 
 Web documentation of "help" dialogues are also [available on the QIIME website](http://qiime.org/scripts/)
 
-***
+---
 
 ### Step 1 - Demultiplex the raw reads
 
@@ -29,7 +31,7 @@ Before running QIIME on your own data, you would need to quality filter, trim, a
 
 For the purpose of the workshop, we have already completed this step for you. Please proceed to Step 2.
 
-***
+---
 
 ## Step 2 - Pick Operational Taxonomic Units 
 
@@ -44,7 +46,7 @@ In this workshop we will be using open-reference OTU picking - [described here i
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
 #### 2a. Picking OTUs using the open reference strategy
-```
+```python
 pick_open_reference_otus.py \
 	-i <input.fna> \
 	-r Silva_119_rep_set99_18S.fna \
@@ -97,7 +99,7 @@ biom add-metadata \
 	-m <mapping.file.txt>
 ```
 
-***
+---
 
 ## Step 3 - Identify amd remove chimeric sequences 
 
@@ -118,7 +120,7 @@ filter_otus_from_otu_table.py \
 	-e <chimeras.txt>
 ```
 
-***
+---
 
 ## Step 4 - Remove pynast failures from the BIOM table
 #### 4a. Remove chimeras from the BIOM table
@@ -137,7 +139,7 @@ biom summarize-table \
 	-o <out.table.txt>
 ```
 
-***
+---
 
 ## Step 5 -  Filter fasta file of aligned rep set sequences to only keep OTUs in filtered BIOM file
 ```
@@ -146,7 +148,7 @@ filter_fasta.py \
 	-o <output.fna> \
 	-b <table.biom>
 ```
-***
+---
 
 ## Step 6 - Make new phylogeny with final set of OTUS (no chimeras, no alignment failures)
 ```
@@ -156,7 +158,7 @@ make_phylogeny.py \
 	--tree_method fasttree
 ```
 
-***
+---
 
 ## Step 7 - Run diversity analysis
 #### 7a. Run beta diversity analysis
