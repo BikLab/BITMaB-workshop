@@ -6,6 +6,26 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 ---
 
+## Pipeline Overview
+
+Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
+
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
+
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick Operational Taxonomic Units
+
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
+
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
+
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+
+#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
+
+#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
+
+---
+
 ### To view the help menu for any QIIME script, run:
 
 ```
@@ -39,7 +59,7 @@ For the purpose of the workshop, we have already completed this step for you. Pl
 
 QIIME offers several options for picking OTUs - the two most common are `reference-based OTU picking` and `open-reference OTU picking`
 
-> Why would choose use one type of OTU picking over the other?
+> ### Why would choose use one type of OTU picking over the other?
 
 In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
 

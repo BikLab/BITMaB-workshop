@@ -24,26 +24,6 @@ Now, you should be in the QIIME environment and ready to run through the pipelin
 
 ***
 
-### BITMaB Workshop Pipeline for analyzing metabarcoding data using QIIME
-
-Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
-
-#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
-
-#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick Operational Taxonomic Units
-
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
-
-#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
-
-#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
-
-#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
-
-#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
-
-***
-
 ### Where are all the files?
 The locations of all the files you will need for the QIIME tutorial are listed below
 
