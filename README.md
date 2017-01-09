@@ -3,23 +3,10 @@
 This workshop provides guidelines to describe the taxonomic diversity in a marine benthic community. We will utilize a pipeline called Qiime (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
 
 # Getting started
-We'll start by logging into Ron using the `ssh` command. Ron is a UNH server computer where Qiime and many other programs are installed. 
-
-### Type the following command using the username assigned to you.
+### Login using the username assigned to you
 
 ```
 ssh username@ron.sr.unh.edu
-```
-Once you hit enter, type in your password which won't show on the screen but it's there. 
-
-Next, change your password by typing the `passwd` command and hit enter. 
-
-Choose a new password.
-
-### Next, run
-
-```
-source ~/.bashrc
 ```
 
 ### To use Qiime, run the commands below
