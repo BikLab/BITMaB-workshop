@@ -6,7 +6,6 @@ If you have any questions about the options in the following commands, please ru
 
 ```
 pick_open_reference_otus.py -h
-
 ```
 ### Step 1 - Demultiplex the raw reads
 
