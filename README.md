@@ -1,6 +1,10 @@
-# Welcome to the BITMaB-workshop, Corpus Christi, TX (January 9-13, 2017)
+# Welcome to the BITMaB workshop - Corpus Christi, TX (January 9-13, 2017)
 
-This workshop provides guidelines to describe the taxonomic diversity in a marine benthic community. We will utilize a pipeline called Qiime (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
+This workshop provides training on how to describe the taxonomic diversity in a marine benthic community, using both morphological taxonomy and environmental sequencing approaches.
+
+Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
+
+[Link to the main QIIME website](http://qiime.org) (for more tutorials and detailed documentation of each script).
 
 # Getting started
 ### Login using the username assigned to you
@@ -18,12 +22,13 @@ enable_qiime.sh
 source activate qiime1
 ```
 
-Now, you should be in the Qiime environment and ready to run through the pipeline. 
+Now, you should be in the QIIME environment and ready to run through the pipeline. 
 
+***
 
-### Analyzing metagenomic data using Qiime
+### BITMaB Workshop Pipeline for analyzing metabarcoding data using QIIME
 
-Below are the general steps of the pipeline.
+Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
 #### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads
 #### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick OTUs (16S and/or 18S)
@@ -33,9 +38,10 @@ Below are the general steps of the pipeline.
 #### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Make a phylogeny using the fasta file from Step 5 
 #### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-7---run-diversity-analysis): Run beta and alpha diversity analyses 
 
+***
 
 ### Where are all the files?
-The locations of all the files you will need for the Qiime tutorial are listed below
+The locations of all the files you will need for the QIIME tutorial are listed below
 
 **Data file:** 
 
