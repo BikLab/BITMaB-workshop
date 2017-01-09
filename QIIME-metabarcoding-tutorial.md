@@ -17,6 +17,8 @@ OR
 
 Web documentation of "help" dialogues are also [available on the QIIME website](http://qiime.org/scripts/)
 
+***
+
 ### Step 1 - Demultiplex the raw reads
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
@@ -27,13 +29,15 @@ Before running QIIME on your own data, you would need to quality filter, trim, a
 
 For the purpose of the workshop, we have already completed this step for you. Please proceed to Step 2.
 
-### Step 2 - Pick Operational Taxonomic Units 
+***
+
+## Step 2 - Pick Operational Taxonomic Units 
 
 "Picking" Operational Taxonomic Units (abbreviated as **OTUs**) is a standard method for clustering raw Illumina reads into clusters of sequences. In theory each OTU is the molecular equivalent of a morphological "species" (but in practice the OTU picking approach is arbitrary and not a perfect equivalent - often you will recover many more OTUs than known biological species).
 
 QIIME offers several options for picking OTUs - the two most common are `reference-based OTU picking` and `open-reference OTU picking`
 
-`Why would choose use one type of OTU picking over the other?`
+> Why would choose use one type of OTU picking over the other?
 
 In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
 
@@ -93,7 +97,9 @@ biom add-metadata \
 	-m <mapping.file.txt>
 ```
 
-### Step 3 - Identify amd remove chimeric sequences 
+***
+
+## Step 3 - Identify amd remove chimeric sequences 
 
 #### 3a. identify chimeras
 ```
@@ -112,7 +118,9 @@ filter_otus_from_otu_table.py \
 	-e <chimeras.txt>
 ```
 
-### Step 4 - Remove pynast failures from the BIOM table
+***
+
+## Step 4 - Remove pynast failures from the BIOM table
 #### 4a. Remove chimeras from the BIOM table
 
 ```
@@ -129,15 +137,18 @@ biom summarize-table \
 	-o <out.table.txt>
 ```
 
-### Step 5 -  Filter fasta file of aligned rep set sequences to only keep OTUs in filtered BIOM file
+***
+
+## Step 5 -  Filter fasta file of aligned rep set sequences to only keep OTUs in filtered BIOM file
 ```
 filter_fasta.py \
 	-f <rep.set.aligned.filtered.fna> \
 	-o <output.fna> \
 	-b <table.biom>
 ```
+***
 
-### Step 6 - Make new phylogeny with final set of OTUS (no chimeras, no alignment failures)
+## Step 6 - Make new phylogeny with final set of OTUS (no chimeras, no alignment failures)
 ```
 make_phylogeny.py \
 	-i <input.fna> \
@@ -145,7 +156,9 @@ make_phylogeny.py \
 	--tree_method fasttree
 ```
 
-### Step 7 - Run diversity analysis
+***
+
+## Step 7 - Run diversity analysis
 #### 7a. Run beta diversity analysis
 ```
 beta_diversity_through_plots.py \
