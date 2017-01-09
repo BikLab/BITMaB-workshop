@@ -45,11 +45,53 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
-```
+#### Join the paired end reads
 
 ```
+join_paired_ends.py -f R1_1.fastq.gz \
+	-r R2_1.fastq.gz -b I1_1.fastq.gz \
+	-o <output-dir-name> \
+	-j 10 -p 15
+```
+Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file contaiing the barcoded nudleotides which match to samples.
+	
+`-j 10` sets minimum overlap to 10bp
 
-For the purpose of the workshop, we have already completed this step for you. Please proceed to Step 2.
+`-p 15` allows for a 15% error rate in the overlapping area
+
+`-o <output-dir-name>` can be whatever directory name you choose
+
+#### Demultiplex the joined reads
+
+```
+split_libraries_fastq.py -i $OUTPUT/fastq-join_joined/fastqjoin.join.fastq \
+	-b $OUTPUT/fastq-join_joined/f	astqjoin.join_barcodes.fastq \
+	-m <qiime-mapping-file> \
+	-o <output-dir-name> \
+	--rev_comp_mapping_barcodes -q 19 -r 5 -p 0.70
+```
+
+`--rev_comp_mapping_barcodes` looks for the reverse compliment of the barcodes in the mapping file
+
+`-q 19` minimum quality score of 20
+
+`-r 5` allows 5 poor quality bases before read truncation
+
+`-p 0.70` minimum fraction of consecutive high quality base calls to include a read
+
+Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
+
+#### Truncate the reverse primer
+
+```
+truncate_reverse_primer.py -f $OUTPUT/seqs.fna \
+	-m <qiime-mapping-file> \
+	-o <output-dir-name>
+```
+
+This last step removes the flanking primer sequences from your reads (the primer you used to generate your amplicons in the lab). These primer sequences are contained in your QIIME mapping file.
+
+For the purpose of the workshop, we have already completed the above three commands for you.
 
 ---
 
@@ -66,16 +108,30 @@ In this workshop we will be using open-reference OTU picking - [described here i
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
 #### 2a. Picking OTUs using the open reference strategy
-```python
+
+We pick OTUs using `workflow scripts` in QIIME. These wrap many scripts under one umbrella command - so to modify some parameters, we need to use a parameter file.
+
+> ### Peek in the QIIME parameter file on the command line. What do you see? What parameters are we modifying?
+
+We'll start by running the following command:
+
+```
 pick_open_reference_otus.py \
-	-i <input.fna> \
-	-r Silva_119_rep_set99_18S.fna \
-	-o <output.directory.name> \
-	-p <parameters.txt> \
+	-i <input-fasta-seqs> \
+	-r <datbase-reference-seqs> \
+	-o <output-directory> \
+	-p <parameters-file> \
 	-s 0.10 \
 	--prefilter_percent_id 0.0 \
 	--suppress_align_and_tree
 ```
+
+Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-11Jan17`
+
+> ### Once the OTU picking script is finished, what files do you see in your output directory? 
+
+> ### Peek into the OTU picking logfile. How many different commands were run using this workflow script?
+
  
 #### 2b. Assign taxonomy
 
