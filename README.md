@@ -69,24 +69,24 @@ The locations of all the files you will need for the Qiime tutorial are listed b
 
 **Silva119 database:**
 
-#### 18S rep set fasta
+18S rep set fasta
 
 ```
 /home/gomre/taruna/200k-GOM-Illumina-subsample/ref-dbs/Silva119_release/rep_set_eukaryotes/99/Silva_119_rep_set99_18S.fna
 ```
 
-#### Aligned 18S rep set fasta
+Aligned 18S rep set fasta
 
 ```
 /home/gomre/taruna/200k-GOM-Illumina-subsample/ref-dbs/Silva119_release/aligned_rep_files/99_18S_only/Silva_119_rep_set99_aligned_18S_only.fna
 ```
 
-#### Taxonomy file
+Taxonomy file
 
 ```
 /home/gomre/taruna/200k-GOM-Illumina-subsample/ref-dbs/Silva119_release/consensus_majority_taxonomy/consensus_taxonomy_eukaryotes/99/taxonomy_99_7_levels_consensus.txt
 ```
-#### Other database files 
+Other database files 
 
 ```
 /home/gomre/taruna/200k-GOM-Illumina-subsample/ref-dbs/Silva119_release/
