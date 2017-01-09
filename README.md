@@ -2,8 +2,10 @@
 
 This workshop provides guidelines to describe the taxonomic diversity in a marine benthic community. We will utilize a pipeline called Qiime (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences.
 
-## Getting started
-We'll start by logging into Ron using the `ssh` command. Ron is a UNH server computer where Qiime and many other programs are installed. Type the following command using the username assigned to you.
+# Getting started
+We'll start by logging into Ron using the `ssh` command. Ron is a UNH server computer where Qiime and many other programs are installed. 
+
+### Type the following command using the username assigned to you.
 
 ```
 ssh username@ron.sr.unh.edu
@@ -14,13 +16,13 @@ Next, change your password by typing the `passwd` command and hit enter.
 
 Choose a new password.
 
-## Next, run
+### Next, run
 
 ```
 source ~/.bashrc
 ```
 
-## To use Qiime, run the commands below
+### To use Qiime, run the commands below
 
 ```
 enable_qiime.sh
@@ -31,7 +33,21 @@ source activate qiime1
 
 Now, you should be in the Qiime environment and ready to run through the pipeline. 
 
-## Where are all the files?
+
+### Analyzing metagenomic data using Qiime
+
+Below are the general steps of the pipeline.
+
+#### Step 1: Demultiplex the raw reads
+#### Step 2: Pick OTUs (16S and/or 18S)
+#### Step 3: Identify chimeras and remove these sequences from the BIOM table
+#### Step 4: Remove PyNast unaligned sequences from the BIOM table from step 3
+#### Step 5: Filter rep set filtered and aligned fasta file to match the entries in the final BIOM table from Step 4
+#### Step 6: Make a phylogeny using the fasta file from Step 5 
+#### Run beta and alpha diversity analyses 
+
+
+### Where are all the files?
 The locations of all the files you will need for the Qiime tutorial are listed below
 
 **Data file:** 
