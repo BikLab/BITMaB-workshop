@@ -25,13 +25,13 @@ Now, you should be in the Qiime environment and ready to run through the pipelin
 
 Below are the general steps of the pipeline.
 
-#### Step 1: Demultiplex the raw reads
-#### Step 2: Pick OTUs (16S and/or 18S)
-#### Step 3: Identify chimeras and remove these sequences from the BIOM table
-#### Step 4: Remove PyNast unaligned sequences from the BIOM table from step 3
-#### Step 5: Filter rep set filtered and aligned fasta file to match the entries in the final BIOM table from Step 4
-#### Step 6: Make a phylogeny using the fasta file from Step 5 
-#### Step 7: Run beta and alpha diversity analyses 
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick OTUs (16S and/or 18S)
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the BIOM table
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-4---remove-pynast-failures-from-the-biom-table): Remove PyNast unaligned sequences from the BIOM table from step 3
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set filtered and aligned fasta file to match the entries in the final BIOM table from Step 4
+#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Make a phylogeny using the fasta file from Step 5 
+#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-7---run-diversity-analysis): Run beta and alpha diversity analyses 
 
 
 ### Where are all the files?

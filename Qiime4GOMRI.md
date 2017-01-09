@@ -1,4 +1,4 @@
-## This file contains a basic set of Qiime commands for calculating diversity metrics.
+## This file contains a basic set of Qiime commands for analyzing metagenomic data and calculating diversity metrics.
 
 If you have any questions about the options in the following commands, please run the name of the script with the help command as shown below.
 
