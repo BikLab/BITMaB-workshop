@@ -14,7 +14,7 @@ Here is an overview of the general steps of the QIIME pipeline that we will carr
 
 #### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick Operational Taxonomic Units
 
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove chimeric sequences from the OTU table
 
 #### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
 
@@ -41,11 +41,11 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-### Step 1 - Demultiplex the raw reads
+### Step 1 - Demultiplex the raw reads (example workflow for workshop)
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
-#### Join the paired end reads
+#### 1a. Join the paired end reads
 
 ```
 join_paired_ends.py -f R1_1.fastq.gz \
@@ -61,7 +61,7 @@ Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2
 
 `-o <output-dir-name>` can be whatever directory name you choose
 
-#### Demultiplex the joined reads
+#### 1b. Demultiplex the joined reads
 
 ```
 split_libraries_fastq.py -i $OUTPUT/fastq-join_joined/fastqjoin.join.fastq \
@@ -81,7 +81,7 @@ split_libraries_fastq.py -i $OUTPUT/fastq-join_joined/fastqjoin.join.fastq \
 
 Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
 
-#### Truncate the reverse primer
+#### 1c. Truncate the reverse primer
 
 ```
 truncate_reverse_primer.py -f $OUTPUT/seqs.fna \
@@ -95,7 +95,8 @@ For the purpose of the workshop, we have already completed the above three comma
 
 ---
 
-## Step 2 - Pick Operational Taxonomic Units 
+## Step 2 - Pick Operational Taxonomic Units (OTUs)
+
 
 "Picking" Operational Taxonomic Units (abbreviated as **OTUs**) is a standard method for clustering raw Illumina reads into clusters of sequences. In theory each OTU is the molecular equivalent of a morphological "species" (but in practice the OTU picking approach is arbitrary and not a perfect equivalent - often you will recover many more OTUs than known biological species).
 
@@ -107,7 +108,11 @@ In this workshop we will be using open-reference OTU picking - [described here i
 
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
-#### 2a. Picking OTUs using the open reference strategy
+#### 2a. Copy data files and reference database files over to your home directory
+
+File paths for workshop files are located on the main README.md workshop page.
+
+#### 2b. Picking OTUs using the open reference strategy
 
 We pick OTUs using `workflow scripts` in QIIME. These wrap many scripts under one umbrella command - so to modify some parameters, we need to use a parameter file.
 
@@ -133,7 +138,7 @@ Choose any name for your output directory - it's usually a good idea to make thi
 > ### Peek into the OTU picking logfile. How many different commands were run using this workflow script?
 
  
-#### 2b. Assign taxonomy
+#### 2c. Assign taxonomy
 
 ```
 assign_taxonomy.py \
@@ -145,39 +150,9 @@ assign_taxonomy.py \
 	--rdp_max_memory 60000
 ```
 
-
-#### 2c. Align rep_set.fna against a pre-aligned reference database. In our case, we are using the Silva119 database. 
-```
-align_seqs.py \
-	-i <rep.set.fna> \
-	-o <output.directory.name> \
-	-t Silva_119_rep_set99_aligned_18S_only.fna \
-	--alignment_method pynast \
-	--pairwise_alignment_method uclust \
-	--min_percent_id 70.0
-```
-
-
-#### 2d. Remove gaps from the aligned rep sets which is important for constructing a phylogeny. If using the Greengenes database, this step is highly recommended. 
-```
-
-filter_alignment.py \
-	-i <rep.set.aligned.fna> \
-	-o <output.directory.name> \
-	--suppress_lane_mask_filter
-```
-
-#### 2e. Add metadata to the BIOM table. This will be helpful for viewing the diversity results.
-```
-biom add-metadata \
-	-i <table.biom> \
-	-o <out.table.biom> \
-	-m <mapping.file.txt>
-```
-
 ---
 
-## Step 3 - Identify amd remove chimeric sequences 
+## Step 3 - Identify chimeras and remove chimeric sequences from the OTU table
 
 #### 3a. identify chimeras
 ```
@@ -198,14 +173,35 @@ filter_otus_from_otu_table.py \
 
 ---
 
-## Step 4 - Remove pynast failures from the BIOM table
-#### 4a. Remove chimeras from the BIOM table
+## Step 4 -  Align sequences and remove alignment failures from the OTU table
 
+#### 4a. Align rep_set.fna against a pre-aligned reference database. In our case, we are using the Silva119 database. 
 ```
-filter_otus_from_otu_table.py \
+align_seqs.py \
+	-i <rep.set.fna> \
+	-o <output.directory.name> \
+	-t Silva_119_rep_set99_aligned_18S_only.fna \
+	--alignment_method pynast \
+	--pairwise_alignment_method uclust \
+	--min_percent_id 70.0
+```
+
+
+#### 4b. Remove gaps from the aligned rep sets which is important for constructing a phylogeny. If using the Greengenes database, this step is highly recommended. 
+```
+
+filter_alignment.py \
+	-i <rep.set.aligned.fna> \
+	-o <output.directory.name> \
+	--suppress_lane_mask_filter
+```
+
+#### 4c. Add metadata to the BIOM table. This will be helpful for viewing the diversity results.
+```
+biom add-metadata \
 	-i <table.biom> \
 	-o <out.table.biom> \
-	-e <rep.set.failures.fna>
+	-m <mapping.file.txt>
 ```
 
 #### 4b. Summarize the BIOM table to identify the minimum number of sequences per sample and store the output in a text file. The minimum number of sequences per sample should be used for the `-e` in Step 3h
@@ -217,7 +213,8 @@ biom summarize-table \
 
 ---
 
-## Step 5 -  Filter fasta file of aligned rep set sequences to only keep OTUs in filtered BIOM file
+## Step 5 - Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+
 ```
 filter_fasta.py \
 	-f <rep.set.aligned.filtered.fna> \
