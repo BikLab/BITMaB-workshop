@@ -48,12 +48,14 @@ Before running QIIME on your own data, you would need to quality filter, trim, a
 #### Join the paired end reads
 
 ```
-join_paired_ends.py -f R1_1.fastq.gz \
-	-r R2_1.fastq.gz -b I1_1.fastq.gz \
+join_paired_ends.py \
+	-f R1_1.fastq.gz \
+	-r R2_1.fastq.gz \
+	-b I1_1.fastq.gz \
 	-o <output-dir-name> \
 	-j 10 -p 15
 ```
-Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file contaiing the barcoded nudleotides which match to samples.
+Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file containing the barcoded nucleotides which match to samples.
 	
 `-j 10` sets minimum overlap to 10bp
 
@@ -64,8 +66,9 @@ Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2
 #### Demultiplex the joined reads
 
 ```
-split_libraries_fastq.py -i $OUTPUT/fastq-join_joined/fastqjoin.join.fastq \
-	-b $OUTPUT/fastq-join_joined/f	astqjoin.join_barcodes.fastq \
+split_libraries_fastq.py \
+	-i fastqjoin.join.fastq \
+	-b fastqjoin.join_barcodes.fastq \
 	-m <qiime-mapping-file> \
 	-o <output-dir-name> \
 	--rev_comp_mapping_barcodes -q 19 -r 5 -p 0.70
@@ -84,7 +87,7 @@ Your quality-filtering parameters may change based on your data type and prefere
 #### Truncate the reverse primer
 
 ```
-truncate_reverse_primer.py -f $OUTPUT/seqs.fna \
+truncate_reverse_primer.py -f seqs.fna \
 	-m <qiime-mapping-file> \
 	-o <output-dir-name>
 ```
