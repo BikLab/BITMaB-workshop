@@ -14,11 +14,11 @@ Here is an overview of the general steps of the QIIME pipeline that we will carr
 
 #### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units): Pick Operational Taxonomic Units
 
-<<<<<<< HEAD
+
 #### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove chimeric sequences from the OTU table
-=======
+
 #### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
->>>>>>> origin/master
+
 
 #### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
 
@@ -45,11 +45,10 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-<<<<<<< HEAD
 ### Step 1 - Demultiplex the raw reads (example workflow for workshop)
 =======
 ## Step 1 - Demultiplex the raw reads
->>>>>>> origin/master
+
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
