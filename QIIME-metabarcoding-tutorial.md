@@ -10,19 +10,23 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
-#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
 
-#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-2---pick-otus): Pick Operational Taxonomic Units
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units): Pick Operational Taxonomic Units
 
+<<<<<<< HEAD
 #### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove chimeric sequences from the OTU table
+=======
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
+>>>>>>> origin/master
 
-#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
 
-#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
 
-#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
+#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
 
-#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
+#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
 
 ---
 
@@ -41,19 +45,25 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
+<<<<<<< HEAD
 ### Step 1 - Demultiplex the raw reads (example workflow for workshop)
+=======
+## Step 1 - Demultiplex the raw reads
+>>>>>>> origin/master
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
 #### 1a. Join the paired end reads
 
 ```
-join_paired_ends.py -f R1_1.fastq.gz \
-	-r R2_1.fastq.gz -b I1_1.fastq.gz \
+join_paired_ends.py \
+	-f R1_1.fastq.gz \
+	-r R2_1.fastq.gz \
+	-b I1_1.fastq.gz \
 	-o <output-dir-name> \
 	-j 10 -p 15
 ```
-Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file contaiing the barcoded nudleotides which match to samples.
+Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file containing the barcoded nucleotides which match to samples.
 	
 `-j 10` sets minimum overlap to 10bp
 
@@ -64,8 +74,9 @@ Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2
 #### 1b. Demultiplex the joined reads
 
 ```
-split_libraries_fastq.py -i $OUTPUT/fastq-join_joined/fastqjoin.join.fastq \
-	-b $OUTPUT/fastq-join_joined/f	astqjoin.join_barcodes.fastq \
+split_libraries_fastq.py \
+	-i fastqjoin.join.fastq \
+	-b fastqjoin.join_barcodes.fastq \
 	-m <qiime-mapping-file> \
 	-o <output-dir-name> \
 	--rev_comp_mapping_barcodes -q 19 -r 5 -p 0.70
@@ -84,7 +95,7 @@ Your quality-filtering parameters may change based on your data type and prefere
 #### 1c. Truncate the reverse primer
 
 ```
-truncate_reverse_primer.py -f $OUTPUT/seqs.fna \
+truncate_reverse_primer.py -f seqs.fna \
 	-m <qiime-mapping-file> \
 	-o <output-dir-name>
 ```
