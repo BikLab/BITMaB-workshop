@@ -20,7 +20,7 @@ This setup is specific to Ron and may not be needed for other servers.
 * **Type the following line at the end of your `bashrc` and save the file.**
 
 ```
-export TMPDIR=/home/gomre/USERNAME/tmp
+export TMPDIR=/home/gomre/USERNAME/temp
 ```
 
 * **Source your `bashrc`**
