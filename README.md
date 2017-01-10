@@ -10,6 +10,17 @@ Workshop Schedule is here:
 ```
 ssh username@ron.sr.unh.edu
 ```
+### Setting up a temp directory on Ron
+This setup is specific to Ron and may not be needed for other servers.
+
+#### A. Create a temp directory in your home directory
+#### B. Open your `bashrc` in nano
+#### C. Type the following line at the end of your `bashrc` and save the file.
+
+```
+export TMPDIR=/home/gomre/USERNAME/tmp
+```
+#### D. Source your `bashrc`
 
 ### To use Qiime, run the commands below
 
