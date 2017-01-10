@@ -116,7 +116,7 @@ We will start by picking OTUs using our fasta file that contains quality-filtere
 
 #### 2a. Copy data files and reference database files over to your home directory
 
-File paths for workshop files are located on the main README.md workshop page.
+File paths for workshop files are located on the main [README.md](https://github.com/BikLab/BITMaB-workshop/blob/master/README.md#where-are-all-the-files) workshop page.
 
 #### 2b. Picking OTUs using the open reference strategy
 
@@ -137,7 +137,7 @@ pick_open_reference_otus.py \
 	--suppress_align_and_tree
 ```
 
-Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-11Jan17`
+Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-10Jan17`
 
 > ### Once the OTU picking script is finished, what files do you see in your output directory? 
 
