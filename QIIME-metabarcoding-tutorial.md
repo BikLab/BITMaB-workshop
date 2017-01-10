@@ -10,7 +10,7 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
-#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads-example-workflow-for-workshop): Demultiplex the raw reads (example workflow for workshop)
 
 #### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
 
@@ -43,12 +43,8 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-=======
 ## Step 1 - Demultiplex the raw reads (example workflow for workshop)
-<<<<<<< HEAD
 
-=======
->>>>>>> 12ef854272f00783c1688b591decfd24909e4cec
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
