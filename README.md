@@ -13,17 +13,17 @@ ssh username@ron.sr.unh.edu
 ### Setting up a temp directory on Ron
 This setup is specific to Ron and may not be needed for other servers.
 
-* #### Create a temp directory in your home directory
+* **Create a temp directory in your home directory**
 
-* #### Open your `bashrc` in nano
+* **Open your `bashrc` in nano**
 
-* #### Type the following line at the end of your `bashrc` and save the file.
+* **Type the following line at the end of your `bashrc` and save the file.**
 
 ```
 export TMPDIR=/home/gomre/USERNAME/tmp
 ```
 
-* #### Source your `bashrc`
+* **Source your `bashrc`**
 
 ### To use Qiime, run the commands below
 
