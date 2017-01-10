@@ -45,11 +45,9 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-<<<<<<< HEAD
 ### Step 1 - Demultiplex the raw reads (example workflow for workshop)
 =======
 ## Step 1 - Demultiplex the raw reads
->>>>>>> origin/master
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
