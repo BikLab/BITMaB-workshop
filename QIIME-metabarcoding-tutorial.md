@@ -150,6 +150,11 @@ Choose any name for your output directory - it's usually a good idea to make thi
 #### 2c. Assign taxonomy
 
 ```
+export RDP_JAR_PATH=/usr/local/lib/rdp_classifier_2.2/rdp_classifier-2.2.jar
+
+```
+
+```
 assign_taxonomy.py \
 	-i <rep-set-OTUs.fna> \
 	-r Silva_119_rep_set99_18S.fna \
