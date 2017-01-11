@@ -10,17 +10,19 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
-#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads-example-workflow-for-workshop): Demultiplex the raw reads (example workflow for workshop)
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
 
-#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units): Pick Operational Taxonomic Units
 
+<<<<<<< HEAD
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove chimeric sequences from the OTU table
+=======
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
+>>>>>>> origin/master
 
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-chimeras-and-remove-chimeric-sequences-from-the-otu-table): Identify chimeras and remove chimeric sequences from the OTU table
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
 
-
-#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4----align-sequences-and-remove-alignment-failures-from-the-otu-table): Align sequences and remove alignment failures from the OTU table
-
-#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5---filter-rep-set-fasta-file-to-match-the-otu-ids-in-your-filtered-otu-table): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
 
 #### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
 
@@ -43,8 +45,9 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-## Step 1 - Demultiplex the raw reads (example workflow for workshop)
-
+### Step 1 - Demultiplex the raw reads (example workflow for workshop)
+=======
+## Step 1 - Demultiplex the raw reads
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
@@ -110,13 +113,13 @@ QIIME offers several options for picking OTUs - the two most common are `referen
 
 > ### Why would choose use one type of OTU picking over the other?
 
-In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial](http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
+In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
 
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
 #### 2a. Copy data files and reference database files over to your home directory
 
-File paths for workshop files are located on the main [README.md](https://github.com/BikLab/BITMaB-workshop/blob/master/README.md#where-are-all-the-files) workshop page.
+File paths for workshop files are located on the main README.md workshop page.
 
 #### 2b. Picking OTUs using the open reference strategy
 
@@ -137,7 +140,7 @@ pick_open_reference_otus.py \
 	--suppress_align_and_tree
 ```
 
-Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-10Jan17`
+Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-11Jan17`
 
 > ### Once the OTU picking script is finished, what files do you see in your output directory? 
 
@@ -152,7 +155,7 @@ assign_taxonomy.py \
 	-r Silva_119_rep_set99_18S.fna \
 	-t taxonomy_99_7_levels_consensus.txt \
 	-o <output-directory> \
-	-m rdp \
+	-m rdp 
 ```
 
 If you get an error message when trying to assign taxonomy (e.g. when using a large dataset), try increasing the RDP max memory, for example `--rdp_max_memory 60000`
@@ -161,7 +164,7 @@ If you get an error message when trying to assign taxonomy (e.g. when using a la
 
 ## Step 3 - Identify chimeras and remove chimeric sequences from the OTU table
 
-#### 3a. identify chimeras
+#### 3a. Identify chimeras
 ```
 identify_chimeric_seqs.py \
 	-i <rep-set-OTUs.fna> \
@@ -169,6 +172,7 @@ identify_chimeric_seqs.py \
 	-o <output-directory> \
 	-r Silva_119_rep_set99_18S.fna
 ```
+
 #### 3b. Remove any sequences flagged as chimeras from the BIOM table
 
 ```
@@ -183,40 +187,43 @@ filter_otus_from_otu_table.py \
 ## Step 4 -  Align sequences and remove alignment failures from the OTU table
 
 #### 4a. Align rep_set.fna against a pre-aligned reference database. In our case, we are using the Silva119 database. 
+
 ```
 align_seqs.py \
-	-i <rep.set.fna> \
-	-o <output.directory.name> \
+	-i <rep-set-OTUs.fna> \
+	-o <output-directory> \
 	-t Silva_119_rep_set99_aligned_18S_only.fna \
 	--alignment_method pynast \
 	--pairwise_alignment_method uclust \
 	--min_percent_id 70.0
 ```
 
-
 #### 4b. Remove gaps from the aligned rep sets which is important for constructing a phylogeny. If using the Greengenes database, this step is highly recommended. 
-```
 
+```
 filter_alignment.py \
-	-i <rep.set.aligned.fna> \
-	-o <output.directory.name> \
+	-i <aligned-rep-set-OTUs.fna> \
+	-o <output-directory> \
 	--suppress_lane_mask_filter
 ```
 
 #### 4c. Add metadata to the BIOM table. This will be helpful for viewing the diversity results.
+
 ```
 biom add-metadata \
 	-i <table.biom> \
-	-o <out.table.biom> \
+	-o <OTU-table.txt> \
 	-m <mapping.file.txt>
 ```
 
-#### 4b. Summarize the BIOM table to identify the minimum number of sequences per sample and store the output in a text file. The minimum number of sequences per sample should be used for the `-e` in Step 3h
+#### 4d. Summarize the BIOM table to assess the number of sequences/OTUs per sample and store the output in a text file. 
+
 ```
 biom summarize-table \
 	-i <table.biom> \
-	-o <out.table.txt>
+	-o <OTU-table-summary.txt>
 ```
+
 
 ---
 
@@ -224,16 +231,17 @@ biom summarize-table \
 
 ```
 filter_fasta.py \
-	-f <rep.set.aligned.filtered.fna> \
+	-f <rep-set-aligned-filtered.fna> \
 	-o <output.fna> \
 	-b <table.biom>
 ```
+
 ---
 
 ## Step 6 - Make new phylogeny with final set of OTUS (no chimeras, no alignment failures)
 ```
 make_phylogeny.py \
-	-i <input.fna> \
+	-i <rep-set-aligned-filtered.fna> \
 	-o <output.tre> \
 	--tree_method fasttree
 ```
@@ -241,7 +249,26 @@ make_phylogeny.py \
 ---
 
 ## Step 7 - Run diversity analysis
-#### 7a. Run beta diversity analysis
+
+
+### Run Core Diversity Analysis workflow script
+
+```
+core_diversity_analyses.py \
+	-i <OTU-table.biom> \
+	-o <core-div> \
+	-m <qiime-mapping-file> \
+	-e NUMBER \
+	-t <phylogeny.tre> \
+	-c Habitat
+```
+
+`-e NUMBER` needs to be completed based on the results of `biom-summarize-table` command - this flag indicates the sequencing depth you will use for even-subsampling and maximum rarefaction depth (e.g. the number of reads you will randomly select from each sample). If a sample contains less reads than the value specified for `-e NUMBER`, then the diversity workflow script will NOT include this sample in your analysis. For example, if `-e 5000` then a sample containing only 1000 reads will not be used to carry out diversity analyses (and you will not see this sample name in your output).
+
+The above `core_diversity_analyses.py` workflow runs a large number of different types of analyses within one script (alpha-diversity, beta-diversity, category analysis, etc.). You can also run individual analyses if you prefer.
+
+Example script for individual beta diversity analysis:
+
 ```
 beta_diversity_through_plots.py \
 	-i <table.biom> \
@@ -250,7 +277,7 @@ beta_diversity_through_plots.py \
 	-t <input.tre> \
 	-e <count.per.sample>
 ```
-#### 7b. Run alpha diversity analysis
+Example scripts for individual alpha diversity analysis:
 
 ```
 alpha_diversity.py \
