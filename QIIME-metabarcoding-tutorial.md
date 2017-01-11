@@ -148,13 +148,14 @@ Choose any name for your output directory - it's usually a good idea to make thi
 
 ```
 assign_taxonomy.py \
-	-i <input.rep.set.fna> \
+	-i <rep-set-OTUs.fna> \
 	-r Silva_119_rep_set99_18S.fna \
 	-t taxonomy_99_7_levels_consensus.txt \
-	-o <output.directory.name> \
+	-o <output-directory> \
 	-m rdp \
-	--rdp_max_memory 60000
 ```
+
+If you get an error message when trying to assign taxonomy (e.g. when using a large dataset), try increasing the RDP max memory, for example `--rdp_max_memory 60000`
 
 ---
 
@@ -163,17 +164,17 @@ assign_taxonomy.py \
 #### 3a. identify chimeras
 ```
 identify_chimeric_seqs.py \
-	-i <rep.set.fna> \
+	-i <rep-set-OTUs.fna> \
 	-m usearch61 \
-	-o <output.directory.name> \
+	-o <output-directory> \
 	-r Silva_119_rep_set99_18S.fna
 ```
-#### 3b. Remove chimeras from the BIOM table
+#### 3b. Remove any sequences flagged as chimeras from the BIOM table
 
 ```
 filter_otus_from_otu_table.py \
-	-i <table.biom> \
-	-o <out.table.biom> \
+	-i <OTU-table-input.biom> \
+	-o <OTU-table-output.biom> \
 	-e <chimeras.txt>
 ```
 
