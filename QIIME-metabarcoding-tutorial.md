@@ -12,16 +12,14 @@ Here is an overview of the general steps of the QIIME pipeline that we will carr
 
 #### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads): Demultiplex the raw reads (example workflow for workshop)
 
-#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units): Pick Operational Taxonomic Units
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
 
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/Qiime4GOMRI.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove chimeric sequences from the OTU table
-
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-amd-remove-chimeric-sequences): Identify chimeras and remove these sequences from the OTU table
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-chimeras-and-remove-chimeric-sequences-from-the-otu-table): Identify chimeras and remove chimeric sequences from the OTU table
 
 
-#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4---remove-pynast-failures-from-the-biom-table): Align sequences and remove alignment failures from the OTU table
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4----align-sequences-and-remove-alignment-failures-from-the-otu-table): Align sequences and remove alignment failures from the OTU table
 
-#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5----filter-fasta-file-of-aligned-rep-set-sequences-to-only-keep-otus-in-filtered-biom-file): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5---filter-rep-set-fasta-file-to-match-the-otu-ids-in-your-filtered-otu-table): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
 
 #### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
 
@@ -44,9 +42,7 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-### Step 1 - Demultiplex the raw reads (example workflow for workshop)
-=======
-## Step 1 - Demultiplex the raw reads
+## Step 1 - Demultiplex the raw reads (example workflow for workshop)
 
 Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
 
