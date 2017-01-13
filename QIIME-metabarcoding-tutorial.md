@@ -267,7 +267,33 @@ core_diversity_analyses.py \
 
 The above `core_diversity_analyses.py` workflow runs a large number of different types of analyses within one script (alpha-diversity, beta-diversity, category analysis, etc.). You can also run individual analyses if you prefer.
 
-Example script for individual beta diversity analysis:
+---
+
+### Other Options for downstream visualization and community analysis
+
+#### [Phinch](http://phinch.org)
+An interactive browser-based data visualization framework (for exploring QIIME outputs) - use your OTU table with taxonomy and mapping file embedded - instructions are here:  [https://github.com/PitchInteractiveInc/Phinch/wiki/Quick-Start](https://github.com/PitchInteractiveInc/Phinch/wiki/Quick-Start) - **NOTE: Phinch only works with BIOM 1.0 files, which are no longer the default output in QIIME 1.9 and higher - see file conversion instructions on the link above.
+
+#### [LEfSE - Linear Discriminate Analasis (LDA) Effectd Size](https://huttenhower.sph.harvard.edu/galaxy/)
+Statistical test that looks for enrichment or depletion of OTUs across sample metadata categories (e.g. Prespill vs. Postspill samples). You can run this analysis on the Huttenhower Lab's online Galaxy server (above link) - you will need to convert your OTU table into tab-delimited format and add metadata headings before you can run LEfSE
+
+#### [Phyloseq](https://github.com/joey711/phyloseq/wiki) - An R package for visualizing QIIME outputs
+Offers sleeker visualizaitons and more flexibility than the visualizations offered within QIIME. You can produce heatmaps, box plots, and trim down your OTU table to only look at community patterns within certain OTUs or taxonomic groups. Great for generating publication-ready figures, but requires quite a bit of R knowledge and tweaking to get working.
+
+#### Other Useful QIIME scripts for Diversity analysis
+
+
+`alpha_diversity.py` - gives you bar charts showing relative abundance of taxa across samples
+
+`beta_diversity_through_plots.py` - primary script for Principle Coordinate Analysis, can be run using a phylogenetic tree (weighted/unweighted Unifrac PCoAs) or carried out using non-phylogenetic metrics (Bray-Curtis, Jaccard, Canberra diversity metrics)
+
+* **Canberra** - doesn’t expect differences in the most abundant OTUs  - squashes relevance down to the same weight; rare species will help to explain differences.
+* **Bray-Curtis** - Only cares about the most abundant species.
+* **Jaccard** - simplest shared OTU index.
+
+
+ 
+Example script for individual beta diversity analysis :
 
 ```
 beta_diversity_through_plots.py \
