@@ -6,7 +6,7 @@ Final workshop Schedule is here: https://docs.google.com/document/d/1H8aHrddJ6Vo
 
 Main Dropbox Folder with all workshop resources is available here: https://www.dropbox.com/sh/p6udtygnk7cf8dr/AAAmpar-QO7jCF_RRxnXigAia?dl=0 
 
-Participant List: NEED LINK
+Participant List can be found [here](https://www.dropbox.com/s/ov3gr2q1k11wl9z/BITMaB_participants_list_2017.pdf?dl=0)
 
 ---
 
@@ -18,7 +18,7 @@ Participant List: NEED LINK
     * [Video links to tutorial presented in the BITMaB Workshop can be found here (New Hampshire INBRE website)](http://nhinbre.org/bioinformatics-modules/)
 * [Introduction to the command line environment and the world of BASH](NEED LINK) (Jordan Ramsdell)
 * **Taxonomy Lecture**: [Goals of the workshop and how it fits into the context of the research project “Genomic Responses to the Deepwater Horizon event and development of high-throughput biological assays for oil spills”](https://www.dropbox.com/s/krr1xn3x814d0nr/FrancescoLeasi-WorkshopGoals-9Jan2017.pdf?dl=0) (Francesca Leasi)
-* **Taxonomy Lecture**: Harpacticoid Copepods (Melissa Rohal)
+* **Taxonomy Lecture**: [Harpacticoid Copepods](https://www.dropbox.com/s/jpy1o1iwmrej4yt/MelissaRohal-Harpacticoida-9Jan2017.pdf?dl=0) (Melissa Rohal)
 
 #### Tuesday Jan 10th:
 
@@ -32,7 +32,7 @@ Participant List: NEED LINK
 * [Data analysis in the QIIME pipeline - jump to second half of Slide Deck ("Day 2")](https://www.dropbox.com/s/07k5ve9gehfwi9j/QIIME-workshop-slides-HBik.pdf?dl=0) (Holly Bik)
     * [Data analysis in the QIIME pipeline - Github Tutorial](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md)
     * [QIIME tutorial for already-demultiplexed raw data](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md) (afternoon session focused on custom analyses for people who brough data)
-* **Taxonomy Lecture**: Platyhelminthes (Julian Smith III)
+* **Taxonomy Lecture**: [Platyhelminthes](https://www.dropbox.com/s/c6t4r87sundpo3a/JulianSmith-Platyhelminthes-11Jan2017.pdf?dl=0) (Julian Smith III)
 * **Taxonomy Lecture**: Nemertea (Jon Norenburg)
 
 #### Thursday Jan 12th:
@@ -40,7 +40,7 @@ Participant List: NEED LINK
 * Genome assembly and annotation (Jordan Ramsdell and UNH team)
 * Introduction to Whole Metagenome Shotgun Analysis.  (Kelley Thomas)
 * Mapping DNA sequence reads to reference genomes to investigate genetic diversity or profiling gene expression. (Kelley Thomas)
-* **Taxonomy Lecture**: [Aplacophora](https://www.dropbox.com/s/tn4o8a910gnenu3/Kocot_Aplacophora.pdf?dl=0) (Kevin Kocot)
+* **Taxonomy Lecture**: [Aplacophora](https://www.dropbox.com/s/k6pb4vr8uiunbva/KevinKocot-Aplacophora-12Jan2017.pdf?dl=0) (Kevin Kocot)
     * Related paper that Kevin mentioned during his talk: [https://academic.oup.com/sysbio/article/doi/10.1093/sysbio/syw079/2449704/Phylogenomics-of-Lophotrochozoa-with-consideration](https://academic.oup.com/sysbio/article/doi/10.1093/sysbio/syw079/2449704/Phylogenomics-of-Lophotrochozoa-with-consideration)
 * **Taxonomy Lecture**: Kinorhyncha, Tardigrada, Gnathostomulida, and Loricifera (Martin Sørensen)
 
