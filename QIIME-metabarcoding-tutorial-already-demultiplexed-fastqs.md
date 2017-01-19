@@ -30,22 +30,12 @@ Qiime requires certain files listed below. Because you are using already demulti
 4. Index file
 	* This file contains the indices used for sequencing. This file is only needed if your reads are not demultiplexed.
  
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
 	 
 ## Pipeline Overview
 
-Here is an overview of the general steps of the QIIME pipeline that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
+Here is an overview of the general steps of the QIIME pipeline for already demultiplexed reads that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
-#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-1---demultiplex-the-raw-reads-example-workflow-for-workshop): Join the paired-end reads
+#### [Step 1](LINK): Prepare fastq files
 
 #### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
 
@@ -77,50 +67,62 @@ Web documentation of "help" dialogues are also [available on the QIIME website](
 
 ---
 
-## Step 1 - Demultiplex the raw reads (example workflow for workshop)
+## Step 1 - Prepare fastq files (example workflow for workshop)
 
-Before running QIIME on your own data, you would need to quality filter, trim, and demultiplex your raw sequence reads. Typically, this is done using the following commands:
+Before running QIIME on your own data, you would need to join, quality filter and trim your raw sequence reads. Typically, this is done using the following commands:
 
 #### 1a. Join the paired end reads
 
-```
-join_paired_ends.py \
-	-f R1_1.fastq.gz \
-	-r R2_1.fastq.gz \
-	-b I1_1.fastq.gz \
-	-o <output-dir-name> \
-	-j 10 -p 15
-```
-Your read 1 and read 2 Illumina Paire-End files would be `R1_1.fastq.gz` and `R2_1.fastq.gz`, respectively, and `I1_1.fastq.gz` is your index file containing the barcoded nucleotides which match to samples.
-	
-`-j 10` sets minimum overlap to 10bp
-
-`-p 15` allows for a 15% error rate in the overlapping area
-
-`-o <output-dir-name>` can be whatever directory name you choose
-
-#### 1b. Demultiplex the joined reads
+* Create a parameters file called `join-PE-parameters.txt` with the following lines
 
 ```
-split_libraries_fastq.py \
-	-i fastqjoin.join.fastq \
-	-b fastqjoin.join_barcodes.fastq \
-	-m <qiime-mapping-file> \
-	-o <output-dir-name> \
-	--rev_comp_mapping_barcodes -q 19 -r 5 -p 0.70
+#join_paired_ends.py parameters
+
+join_paired_ends:min_overlap	10 #sets minimum overlap to 10bp
+join_paired_ends:perc_max_diff	15 #allows for a 15% error rate in the overlapping area
 ```
 
-`--rev_comp_mapping_barcodes` looks for the reverse compliment of the barcodes in the mapping file
+* NOTE: be sure to specify the `--read1_indicator` and `--read2_indicator`. The default is `_R1_` so `S0_L001_R1_001.fastq.gz` and `S0_L001_R2_001.fastq.gz` would be matched up reads. 
 
-`-q 19` minimum quality score of 20
+```
+multiple_join_paired_ends.py \
+	-i <path_2_input_directory> \
+	-o <path_2_output_directory> \
+	--read1_indicator <pattern1> \ 
+	--read2_indicator <pattern2> \
+	-p <path_2_parameters_file>
 
-`-r 5` allows 5 poor quality bases before read truncation
+```
 
-`-p 0.70` minimum fraction of consecutive high quality base calls to include a read
+`-o <path_2_output_directory>` can be whatever directory name you choose
+
+#### 1b. Quality filter the joined reads
+
+* Create a parameters file called `split-libraries-parameters.txt` with the following lines
+
+```
+#split_libraries_fastq.py parameters
+
+split_libraries_fastq.py:--phred_quality treshold	19 #minimum quality score of 20
+split_libraries_fastq.py:--max_bad_run_length	5 #allows 5 poor quality bases before read truncation
+split_libraries_fastq.py:--min_per_read_length_fraction	0.70 #minimum fraction of consecutive high quality base calls to include a read
+split_libraries_fastq.py:--barcode_type	not-barcoded 
+```
+
+
+* NOTE: be sure to specify the `--read_indicator` and `--read2_indicator`. The default is `_R1_`.
+
+```
+multiple_split_libraries_fastq.py \
+	-i <path_2_input_directory> \
+	-o <path_2_output_directory> \
+	--read_indicator <pattern> \
+	-p <path_2_parameters_file>
+```
 
 Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
 
-#### 1c. Truncate the reverse primer
+#### 1c. Truncate the reverse primer 
 
 ```
 truncate_reverse_primer.py -f seqs.fna \
