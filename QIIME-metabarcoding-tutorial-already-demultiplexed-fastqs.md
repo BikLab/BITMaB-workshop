@@ -2,22 +2,22 @@
 
 Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize microbial diversity using raw DNA sequences in fastq files. Please use this pipeline if your fastq files are already demultiplexed - meaning each fastq file pairs (R1 and R2) represent sequences from ONE sample type.
 
-[Link to the main QIIME website](http://qiime.org) (for more tutorials and detailed documentation of each script).
+[Link to the main QIIME website](http://QIIME.org) (for more tutorials and detailed documentation of each script).
 
 ---
 ## Directory structure
 
 Before we begin the pipeline, we want to share a directory structure we use in our lab, and we highly recommend you implement the same or a similar directory structure. Using this structure will not only help you stay organized, but will also help you understand and follow our pipeline with ease. 
 
-![Recommended directory structure for Qiime](https://www.dropbox.com/s/mqk2plz0d56k224/dir-struc-qiime-small.png?raw=1)
+![Recommended directory structure for QIIME](https://www.dropbox.com/s/mqk2plz0d56k224/dir-struc-QIIME-small.png?raw=1)
 
-The numbers in some directory names correspond to the order in which these directories are created during our Qiime pipeline. 
+The numbers in some directory names correspond to the order in which these directories are created during our QIIME pipeline. 
 
-## Necessary files for Qiime 
-Qiime requires certain files listed below. Because you are using already demultiplexed fastq files, only the files in **bold** are necessary for your purposes.
+## Necessary files for QIIME 
+QIIME requires certain files listed below. Because you are using already demultiplexed fastq files, only the files in **bold** are necessary for your purposes.
 
 1. **A mapping file**
-	* This is a tab-delimited file containing all the sequencing info and should be in format below. We have shown only the required columns. More info on formatting the mapping file is [here](http://qiime.org/documentation/file_formats.html). 
+	* This is a tab-delimited file containing all the sequencing info and should be in format below. We have shown only the required columns. More info on formatting the mapping file is [here](http://QIIME.org/documentation/file_formats.html). 
 	
 	![Example mapping file](https://www.dropbox.com/s/j8jg5ogkt2b0l68/example_mapping_file_small.png?raw=1)
 	
@@ -63,7 +63,7 @@ OR
 <script-name> --help
 ```
 
-Web documentation of "help" dialogues are also [available on the QIIME website](http://qiime.org/scripts/)
+Web documentation of "help" dialogues are also [available on the QIIME website](http://QIIME.org/scripts/)
 
 ---
 
@@ -86,15 +86,15 @@ join_paired_ends:perc_max_diff	15 #allows for a 15% error rate in the overlappin
 
 ```
 multiple_join_paired_ends.py \
-	-i <path_2_input_directory> \
-	-o <path_2_output_directory> \
+	-i <input.directory.name> \
+	-o <output.directory.name> \
 	--read1_indicator <pattern1> \ 
 	--read2_indicator <pattern2> \
-	-p <path_2_parameters_file>
+	-p <QIIME.parameters.file>
 
 ```
 
-`-o <path_2_output_directory>` can be whatever directory name you choose
+`-o <output.directory.name>` can be whatever directory name you choose
 
 #### 1b. Quality filter the joined reads
 
@@ -114,10 +114,10 @@ split_libraries_fastq.py:--barcode_type	not-barcoded
 
 ```
 multiple_split_libraries_fastq.py \
-	-i <path_2_input_directory> \
-	-o <path_2_output_directory> \
+	-i <input.directory.name> \
+	-o <output.directory.name> \
 	--read_indicator <pattern> \
-	-p <path_2_parameters_file>
+	-p <QIIME.parameters.file>
 ```
 
 Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
@@ -128,8 +128,8 @@ Your quality-filtering parameters may change based on your data type and prefere
 
 ```
 truncate_reverse_primer.py -f seqs.fna \
-	-m <qiime-mapping-file> \
-	-o <output-dir-name>
+	-m <QIIME.mapping.file> \
+	-o <output.directory.name>
 ```
 
 This last step removes the flanking primer sequences from your reads (the primer you used to generate your amplicons in the lab). These primer sequences are contained in your QIIME mapping file.
@@ -145,13 +145,9 @@ QIIME offers several options for picking OTUs - the two most common are `referen
 
 > ### Why would choose use one type of OTU picking over the other?
 
-In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
+In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial](http://QIIME.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
 
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
-
-#### 2a. Copy data files and reference database files over to your home directory
-
-File paths for workshop files are located on the main README.md workshop page.
 
 #### 2b. Picking OTUs using the open reference strategy
 
@@ -163,10 +159,10 @@ We'll start by running the following command:
 
 ```
 pick_open_reference_otus.py \
-	-i <input-fasta-seqs> \
-	-r <datbase-reference-seqs> \
-	-o <output-directory> \
-	-p <parameters-file> \
+	-i <input.fasta> \
+	-r <database.reference.seqs> \
+	-o <output.directory.name> \
+	-p <QIIME.parameters.file> \
 	-s 0.10 \
 	--prefilter_percent_id 0.0 \
 	--suppress_align_and_tree
@@ -191,7 +187,7 @@ assign_taxonomy.py \
 	-i <rep-set-OTUs.fna> \
 	-r Silva_119_rep_set99_18S.fna \
 	-t taxonomy_99_7_levels_consensus.txt \
-	-o <output-directory> \
+	-o <output.directory.name> \
 	-m rdp 
 ```
 
@@ -206,7 +202,7 @@ If you get an error message when trying to assign taxonomy (e.g. when using a la
 identify_chimeric_seqs.py \
 	-i <rep-set-OTUs.fna> \
 	-m usearch61 \
-	-o <output-directory> \
+	-o <output.directory.name> \
 	-r Silva_119_rep_set99_18S.fna
 ```
 
@@ -228,7 +224,7 @@ filter_otus_from_otu_table.py \
 ```
 align_seqs.py \
 	-i <rep-set-OTUs.fna> \
-	-o <output-directory> \
+	-o <output.directory.name> \
 	-t Silva_119_rep_set99_aligned_18S_only.fna \
 	--alignment_method pynast \
 	--pairwise_alignment_method uclust \
@@ -240,7 +236,7 @@ align_seqs.py \
 ```
 filter_alignment.py \
 	-i <aligned-rep-set-OTUs.fna> \
-	-o <output-directory> \
+	-o <output.directory.name> \
 	--suppress_lane_mask_filter
 ```
 
@@ -294,7 +290,7 @@ make_phylogeny.py \
 core_diversity_analyses.py \
 	-i <OTU-table.biom> \
 	-o <core-div> \
-	-m <qiime-mapping-file> \
+	-m <QIIME.mapping.file> \
 	-e NUMBER \
 	-t <phylogeny.tre> \
 	-c Habitat
