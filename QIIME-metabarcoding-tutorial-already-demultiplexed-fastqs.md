@@ -9,7 +9,7 @@ Here, we will utilize a pipeline called QIIME (v1.9.1) to analyze and visualize 
 
 Before we begin the pipeline, we want to share a directory structure we use in our lab, and we highly recommend you implement the same or a similar directory structure. Using this structure will not only help you stay organized, but will also help you understand and follow our pipeline with ease. 
 
-![Recommended directory structure for Qiime](https://www.dropbox.com/s/3k0jh3yo6ok99jd/dir-struc-qiime.png?raw=1)
+![Recommended directory structure for Qiime](https://www.dropbox.com/s/mqk2plz0d56k224/dir-struc-qiime-small.png?raw=1)
 
 The numbers in some directory names correspond to the order in which these directories are created during our Qiime pipeline. 
 
@@ -19,7 +19,7 @@ Qiime requires certain files listed below. Because you are using already demulti
 1. **A mapping file**
 	* This is a tab-delimited file containing all the sequencing info and should be in format below. We have shown only the required columns. More info on formatting the mapping file is [here](http://qiime.org/documentation/file_formats.html). 
 	
-	![Example mapping file](https://www.dropbox.com/s/lrbgs41tep458rd/example_mapping_file.png?raw=1)
+	![Example mapping file](https://www.dropbox.com/s/j8jg5ogkt2b0l68/example_mapping_file_small.png?raw=1)
 	
 2. **R1 fastq**
 	* This file contains reads returned by the sequencer first.
