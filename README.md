@@ -53,8 +53,8 @@ Participant List can be found [here](https://www.dropbox.com/s/ov3gr2q1k11wl9z/B
         * [Figures in GOM Deepwater Horizon Impacts paper (Bik et al. 2012)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0038550)
         * [Illumina run artifact visualizations/exploration in this Office Microbiome paper (Chase et al. 2016)](http://msystems.asm.org/content/1/2/e00022-16)
 * [Reccomendations for Enhancing Research Reproducibility](https://www.dropbox.com/s/sxc0o3a83ziu52k/FASEB_Enhancing%20Research%20Reproducibility%202016.pdf?dl=0) (Kelley Thomas)  
-* **Taxonomy Lecture**: Nematoda (Alberto de Jesús Navarrete)
-* **Taxonomy Lecture**: [Ostracoda](https://www.dropbox.com/s/exo94qkuw2kr2jo/SimoneBrandao-Ostracoda-13Jan2017.ppt?dl=0) (Simone Nunes Brandão)
+* **Taxonomy Lecture**: [Nematoda](https://www.dropbox.com/s/47ktyehy51fz40m/AlbertodeJesusNavarrete-Nematoda-13Jan2017.pdf?dl=0) (Alberto de Jesús Navarrete)
+* **Taxonomy Lecture**: [Ostracoda](https://www.dropbox.com/s/qw0ybv93j0lmma6/SimoneBrand%C3%A3o-Ostracoda-13Jan2017.pdf?dl=0) (Simone Nunes Brandão)
 
 
 
