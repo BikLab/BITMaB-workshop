@@ -110,7 +110,7 @@ split_libraries_fastq.py:--barcode_type	not-barcoded
 ```
 
 
-* NOTE: be sure to specify the `--read_indicator` and `--read2_indicator`. The default is `_R1_`.
+* NOTE: be sure to specify the `--read_indicator`. The default is `_R1_` and more than likely the output from the previous step will have this configuration. 
 
 ```
 multiple_split_libraries_fastq.py \
@@ -122,7 +122,9 @@ multiple_split_libraries_fastq.py \
 
 Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
 
-#### 1c. Truncate the reverse primer 
+#### 1c. Truncate the reverse primer
+
+* NOTE: you must have the reverse primer sequences listed in your mapping file for this step.
 
 ```
 truncate_reverse_primer.py -f seqs.fna \
@@ -131,8 +133,6 @@ truncate_reverse_primer.py -f seqs.fna \
 ```
 
 This last step removes the flanking primer sequences from your reads (the primer you used to generate your amplicons in the lab). These primer sequences are contained in your QIIME mapping file.
-
-For the purpose of the workshop, we have already completed the above three commands for you.
 
 ---
 
