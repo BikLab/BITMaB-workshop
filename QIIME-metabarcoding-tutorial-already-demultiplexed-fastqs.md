@@ -35,20 +35,20 @@ QIIME requires certain files listed below. Because you are using already demulti
 
 Here is an overview of the general steps of the QIIME pipeline for already demultiplexed reads that we will carry out during the BITMaB workshop (click links to jump to detailed instructions for each step):
 
-#### [Step 1](LINK): Prepare fastq files
+#### [Step 1](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-1---prepare-fastq-files-example-workflow-for-workshop): Prepare fastq files
 
-#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
+#### [Step 2](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-2---pick-operational-taxonomic-units-otus): Pick Operational Taxonomic Units
 
-#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-3---identify-chimeras-and-remove-chimeric-sequences-from-the-otu-table): Identify chimeras and remove chimeric sequences from the OTU table
+#### [Step 3](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-3---identify-chimeras-and-remove-chimeric-sequences-from-the-otu-table): Identify chimeras and remove chimeric sequences from the OTU table
 
 
-#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-4----align-sequences-and-remove-alignment-failures-from-the-otu-table): Align sequences and remove alignment failures from the OTU table
+#### [Step 4](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-4----align-sequences-and-remove-alignment-failures-from-the-otu-table): Align sequences and remove alignment failures from the OTU table
 
-#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-5---filter-rep-set-fasta-file-to-match-the-otu-ids-in-your-filtered-otu-table): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
+#### [Step 5](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-5---filter-rep-set-fasta-file-to-match-the-otu-ids-in-your-filtered-otu-table): Filter rep set fasta file to match the OTU IDs in your filtered OTU table 
 
-#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
+#### [Step 6](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-6---make-new-phylogeny-with-final-set-of-otus-no-chimeras-no-alignment-failures): Construct a phylogenetic tree
 
-#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
+#### [Step 7](https://github.com/BikLab/BITMaB-workshop/blob/master/QIIME-metabarcoding-tutorial-already-demultiplexed-fastqs.md#step-7---run-diversity-analysis): Carry out microbial community analyses to assess alpha- and beta-diversity 
 
 ---
 

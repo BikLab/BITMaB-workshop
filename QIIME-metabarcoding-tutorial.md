@@ -108,7 +108,7 @@ QIIME offers several options for picking OTUs - the two most common are `referen
 
 > ### Why would choose use one type of OTU picking over the other?
 
-In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial]{http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
+In this workshop we will be using open-reference OTU picking - [described here in this QIIME tutorial](http://qiime.org/tutorials/open_reference_illumina_processing.html). The method is also peer-reviewed and published in [Rideout et. al 2014, PeerJ](https://peerj.com/articles/545/) (open access publication)
 
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
