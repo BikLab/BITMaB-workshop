@@ -94,7 +94,7 @@ multiple_join_paired_ends.py \
 
 ```
 
-`-o <output.directory.name>` can be whatever directory name you choose
+`-o <output.directory.name>` can be whatever directory name you choose but we recommend using `data-clean/1_joined-fastqs`
 
 #### 1b. Quality filter the joined reads
 
@@ -120,7 +120,7 @@ multiple_split_libraries_fastq.py \
 	-p <QIIME.parameters.file>
 ```
 
-Your quality-filtering parameters may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
+Your quality-filtering parameters specified in the parameters file may change based on your data type and preferences (e.g. if you want stringent vs. relaxed filtering)
 
 #### 1c. Truncate the reverse primer
 
@@ -149,11 +149,30 @@ In this workshop we will be using open-reference OTU picking - [described here i
 
 We will start by picking OTUs using our fasta file that contains quality-filtered Illumina reads from each sample. 
 
-#### 2b. Picking OTUs using the open reference strategy
+#### 2a. Picking OTUs using the open reference strategy
 
-We pick OTUs using `workflow scripts` in QIIME. These wrap many scripts under one umbrella command - so to modify some parameters, we need to use a parameter file.
+We pick OTUs using `workflow scripts` in QIIME. These wrap many scripts under one umbrella command - so to modify some parameters, we need to use a parameter file. Create a parameters file called `18S_openref99_rdp_silva119.txt` with the following lines
 
-> ### Peek in the QIIME parameter file on the command line. What do you see? What parameters are we modifying?
+```
+#Parameters for 99pct open reference OTU picking with rdp taxonomy assignment
+
+
+# OTU picker parameters
+pick_otus:similarity	0.99
+pick_otus:enable_rev_strand_match	True
+
+# Taxonomy assignment parameters
+assign_taxonomy:reference_seqs_fp	/home/gomre/taruna/GOM-Illumina/ref_dbs/Silva119_release/rep_set_eukaryotes/99/Silva_119_rep_set99_18S.fna
+assign_taxonomy:id_to_taxonomy_fp	/home/gomre/taruna/GOM-Illumina/ref_dbs/Silva119_release/consensus_majority_taxonomy/consensus_taxonomy_eukaryotes/99/taxonomy_99_7_levels_consensus.txt
+assign_taxonomy:assignment_method	rdp
+assign_taxonomy:confidence	0.7
+assign_taxonomy:rdp_max_memory	60000
+
+```
+
+> ### Examine the QIIME parameter file above. What do you see? What parameters are we modifying?
+
+
 
 We'll start by running the following command:
 
@@ -168,14 +187,16 @@ pick_open_reference_otus.py \
 	--suppress_align_and_tree
 ```
 
-Choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o uclust-99pct-18Seuk-11Jan17`
+The `<input.fasta>` is the output file from Step 1c. 
+
+Again, choose any name for your output directory - it's usually a good idea to make this descriptive so you can remember what type of analysis you did, and when you ran it. Something like: `-o analysis-results/uclust-99pct-18Seuk-11Jan17/1_otu-pick`
 
 > ### Once the OTU picking script is finished, what files do you see in your output directory? 
 
 > ### Peek into the OTU picking logfile. How many different commands were run using this workflow script?
 
  
-#### 2c. Assign taxonomy
+#### 2b. Assign taxonomy
 
 ```
 export RDP_JAR_PATH=/usr/local/lib/rdp_classifier_2.2/rdp_classifier-2.2.jar
@@ -191,7 +212,7 @@ assign_taxonomy.py \
 	-m rdp 
 ```
 
-If you get an error message when trying to assign taxonomy (e.g. when using a large dataset), try increasing the RDP max memory, for example `--rdp_max_memory 60000`
+If you get an error message when trying to assign taxonomy (e.g. when using a large dataset), try increasing the RDP max memory, for example `--rdp_max_memory 80000`
 
 ---
 
@@ -205,7 +226,8 @@ identify_chimeric_seqs.py \
 	-o <output.directory.name> \
 	-r Silva_119_rep_set99_18S.fna
 ```
-
+We recommend using `-m ChimeraSlayer` but it is available on your server.
+ 
 #### 3b. Remove any sequences flagged as chimeras from the BIOM table
 
 ```
