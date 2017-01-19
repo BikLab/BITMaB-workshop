@@ -19,8 +19,8 @@ Qiime requires certain files listed below. Because you are using already demulti
 1. **A mapping file**
 	* This is a tab-delimited file containing all the sequencing info and should be in format below. We have shown only the required columns. More info on formatting the mapping file is [here](http://qiime.org/documentation/file_formats.html). 
 	
-	![Example mapping file](https://www.dropbox.com/s/e5gex71y41smmw9/example_mapping_file.png?raw=1)
-
+	![Example mapping file](https://www.dropbox.com/s/lrbgs41tep458rd/example_mapping_file.png?raw=1)
+	
 2. **R1 fastq**
 	* This file contains reads returned by the sequencer first.
 
