@@ -103,10 +103,10 @@ multiple_join_paired_ends.py \
 ```
 #split_libraries_fastq.py parameters
 
-split_libraries_fastq.py:--phred_quality treshold	19 #minimum quality score of 20
-split_libraries_fastq.py:--max_bad_run_length	5 #allows 5 poor quality bases before read truncation
-split_libraries_fastq.py:--min_per_read_length_fraction	0.70 #minimum fraction of consecutive high quality base calls to include a read
-split_libraries_fastq.py:--barcode_type	not-barcoded 
+split_libraries_fastq:--phred_quality treshold	19 #minimum quality score of 20
+split_libraries_fastq:--max_bad_run_length	5 #allows 5 poor quality bases before read truncation
+split_libraries_fastq:--min_per_read_length_fraction	0.70 #minimum fraction of consecutive high quality base calls to include a read
+split_libraries_fastq:--barcode_type	not-barcoded 
 ```
 
 
