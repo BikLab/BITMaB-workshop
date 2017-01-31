@@ -6,7 +6,16 @@ Final workshop Schedule is here: https://docs.google.com/document/d/1H8aHrddJ6Vo
 
 Main Dropbox Folder with all workshop resources is available here: https://www.dropbox.com/sh/p6udtygnk7cf8dr/AAAmpar-QO7jCF_RRxnXigAia?dl=0 
 
-Participant List can be found [here](https://www.dropbox.com/s/ov3gr2q1k11wl9z/BITMaB_participants_list_2017.pdf?dl=0)
+Participant List can be found here: 
+https://www.dropbox.com/s/ov3gr2q1k11wl9z/BITMaB_participants_list_2017.pdf?dl=0)
+
+####Sample Info:
+
+Google Map of Workshop Sample Sites:
+https://drive.google.com/open?id=1PySPGX4VuOVBa2Hq9qdse7c88xU&usp=sharing
+
+QIIME-formatted sample mapping file (Genomic Samples - Ethanol and Zymo Buffer):
+INSERT LINK
 
 ---
 
